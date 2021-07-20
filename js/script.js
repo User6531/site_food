@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     modal('[data-modal]', '.modal', OpenModalTimer);
     calc();
-    timer('2021-07-15 13:00:00');
+    timer('2021-10-22 13:00:00');
     cards();
     forms(OpenModalTimer);
     slider({

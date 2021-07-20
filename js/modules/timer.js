@@ -1,17 +1,17 @@
 function timer(deadLine) {
-    
-    const dayMs = 86400000,
-          hoursMs = 3600000,
-          minutsMs = 60000,
-          secondsMs = 1000;
 
-    function timerObj(endtime){
+    const dayMs = 86400000,
+        hoursMs = 3600000,
+        minutsMs = 60000,
+        secondsMs = 1000;
+
+    function timerObj(endtime) {
         const now = new Date(),
-              total = Date.parse(endtime) - Date.parse(now),
-              day = Math.floor(total / dayMs),
-              hours = Math.floor((total / hoursMs) % 24),
-              minuts = Math.floor((total / minutsMs) % 60),
-              seconds = Math.floor((total / secondsMs) % 60);
+            total = Date.parse(endtime) - Date.parse(now),
+            day = Math.floor(total / dayMs),
+            hours = Math.floor((total / hoursMs) % 24),
+            minuts = Math.floor((total / minutsMs) % 60),
+            seconds = Math.floor((total / secondsMs) % 60);
 
         return {
             total,
@@ -32,15 +32,16 @@ function timer(deadLine) {
 
     function getTimer(endtime) {
         const timer = document.querySelector('.timer'),
-              days = timer.querySelector('#days'),
-              hours = timer.querySelector('#hours'),
-              minuts = timer.querySelector('#minutes'),
-              seconds = timer.querySelector('#seconds'),
-              interval = setInterval(setTimer, 1000);
+            days = timer.querySelector('#days'),
+            hours = timer.querySelector('#hours'),
+            minuts = timer.querySelector('#minutes'),
+            seconds = timer.querySelector('#seconds'),
+            interval = setInterval(setTimer, 1000);
 
-              setTimer();
+        setTimer();
+
         function setTimer() {
-            const total = timerObj(endtime); 
+            const total = timerObj(endtime);
             days.innerHTML = getZero(total.day);
             hours.innerHTML = getZero(total.hours);
             minuts.innerHTML = getZero(total.minuts);
@@ -50,11 +51,8 @@ function timer(deadLine) {
                 clearInterval(interval);
             }
         }
-
     }
     getTimer(deadLine);
 }
-
-
 
 export default timer;
