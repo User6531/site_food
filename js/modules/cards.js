@@ -41,9 +41,9 @@ function cards() {
 
     const transfer = +27;
 
-    getResource('http://localhost:3000/menu')
+    getResource('/db.json')
         .then (data=> {
-            data.forEach(({img, alt, title, descr, price}) => {
+            data.menu.forEach(({img, alt, title, descr, price}) => {
                 price *= transfer;
                 new Menu(img, alt, title, descr, price, '.menu .container').render();
             });
